@@ -6,11 +6,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class LoginPage {
-    By usernameTxtBox= By.xpath("//*[@id='user-name']");
-    By passwordTxtBox= By.xpath("//*[@id='password']");
-    By loginButton= By.xpath("//*[@id='login-button']");
-    By productLabel= By.xpath("//*[text()='Products']");
-    By warningMessage= By.xpath("//*[@data-test='error' ]");
+    private By usernameTxtBox= By.xpath("//*[@id='user-name']");
+    private By passwordTxtBox= By.xpath("//*[@id='password']");
+    private By loginButton= By.xpath("//*[@id='login-button']");
+    private By productLabel= By.xpath("//*[text()='Products']");
+    private By warningMessage= By.xpath("//*[@data-test='error' ]");
 
 
 

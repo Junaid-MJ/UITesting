@@ -8,7 +8,8 @@ import io.cucumber.junit.*;
         features="src/test/java/Features",
         glue={"StepDefinitions"},
         monochrome = true,
-        plugin={"pretty", "html:target/HtmlReports.html", "json:target/jsonReport.json","junit:target/junitReport.xml"}
+        plugin={"pretty", "html:target/HtmlReports.html", "json:target/jsonReport.json","junit:target/junitReport.xml"},
+        dryRun = true
        // , tags = ""
 )
 public class TestRunner {
