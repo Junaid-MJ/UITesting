@@ -1,0 +1,13 @@
+-This is a maven Project , In which I used JAVA, Selenium, Cucumber & junit.
+-This project is made to test the UI & functionality of SWAG LABS Website.
+-The whole Framework is based on Page object Model[BDD Framework]
+-In this project I implemented WORA principle where ever it was possible, which makes it more scalabale and feasible.
+-I implemented some methods to dynamically change the XPaths of elements based on input given by user.
+
+Execution Details: 
+No. of Test cases- 7
+Execution Time - 2 minutes 6 seconds
+Result - 100% Passed(target/HTML Report)
+
+
+
