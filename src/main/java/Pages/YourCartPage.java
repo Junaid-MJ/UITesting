@@ -6,14 +6,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class YourCartPage {
-    By removeButton;
-    By checkoutButton=By.xpath("//*[text()='Checkout']");
-    By field;
-    By continueButton=By.xpath("//*[@id='continue']");
-    By checkoutLabel= By.xpath("//*[text()='Checkout: Overview']");
-    By checkoutCompleteLabel= By.xpath("//*[text()='THANK YOU FOR YOUR ORDER']");
-    By finishButton= By.xpath("//*[text()='Finish']");
-    By error= By.xpath("//*[@data-test='error']");
+    private By removeButton;
+    private By checkoutButton=By.xpath("//*[text()='Checkout']");
+    private By field;
+    private By continueButton=By.xpath("//*[@id='continue']");
+    private By checkoutLabel= By.xpath("//*[text()='Checkout: Overview']");
+    private By checkoutCompleteLabel= By.xpath("//*[text()='THANK YOU FOR YOUR ORDER']");
+    private By finishButton= By.xpath("//*[text()='Finish']");
+    private By error= By.xpath("//*[@data-test='error']");
 
 
     public By RemoveButton() {
