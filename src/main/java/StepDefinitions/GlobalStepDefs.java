@@ -11,6 +11,8 @@ import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -112,6 +114,73 @@ public class GlobalStepDefs {
             }
         }
         Assert.assertEquals(false, isPresent);
+
+    }
+
+
+    @When("User Removes {string} from Cart")
+    public void userRemovesFromCart(String ProductName) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        yourCartPage.setRemoveButton(ProductName);
+        driver.findElement(yourCartPage.RemoveButton()).click();
+    }
+
+    @And("User fills {string} as {string} in checkout information")
+    public void userFillsAs(String field , String value) {
+        yourCartPage.setField(field);
+        driver.findElement(yourCartPage.field()).sendKeys(value);
+    }
+
+    @Then("User Verify checkout overview")
+    public void userVerifyCheckoutOverview() {
+        driver.findElement(yourCartPage.CheckoutLabel()).isDisplayed();
+    }
+
+    @Then("Validate that the order is successful")
+    public void validateThatTheOrderIsSuccessful() {
+        driver.findElement(yourCartPage.CheckoutCompleteLabel()).isDisplayed();
+    }
+
+
+    @Then("Validate that the warning {string} is coming")
+    public void validateThatTheWarningIsComing(String ExpectedMessage) {
+        String actualMessage =driver.findElement(yourCartPage.Error()).getText();
+        Assert.assertEquals(ExpectedMessage,actualMessage);
+    }
+
+    @When("User selects {string} from {string} dropdown")
+    public void userSelectsFromDropdown(String option, String list) throws ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException, InterruptedException {
+        driver.findElement(homepage.get(list)).click();
+        Thread.sleep(2000);
+        homepage.setSortOption(option);
+        driver.findElement(homepage.SortOption()).click();
+    }
+
+    @Then("Validate that all the items are sorted according to {string}")
+    public void validateThatAllTheItemsAreSortedFromPrice(String order) {
+        List<WebElement> list;
+        if(order.equals("Name (Z to A)") || order.equals("Name (A to Z)") ){
+            list= driver.findElements(homepage.AlphabeticalListOfItem());
+        }
+        else{
+            list= driver.findElements(homepage.NumericListOfItem());
+        }
+
+        List<String> actualListOfItem = new ArrayList<String>();
+        for (WebElement e:list) {
+            actualListOfItem.add(e.getText());
+        }
+
+        List<String> ExpectedListOfItem = actualListOfItem;
+        if(order.equals("Name (Z to A)") || order.equals("Price (low to high)") ){
+            Collections.sort(ExpectedListOfItem,Collections.reverseOrder());
+        }
+        else{
+            Collections.sort(ExpectedListOfItem);
+        }
+
+        Assert.assertEquals(ExpectedListOfItem,actualListOfItem);
+
+
 
     }
 }
