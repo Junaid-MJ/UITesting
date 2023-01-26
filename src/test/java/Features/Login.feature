@@ -3,6 +3,7 @@ Feature: To Test Login Functionality
 
 
 
+  @Login
   Scenario: 1. Verify Login logout functionality for a valid User
     Given User navigates to the login page
     And User Enters the username as "standard_user" and password as "secret_sauce"
@@ -12,6 +13,7 @@ Feature: To Test Login Functionality
     Then Validate that user has logged out successfully
     And User quits the browser
 
+  @Login
   Scenario: 2. Verify Login is locked for a locked user
     Given User navigates to the login page
     And User Enters the username as "locked_out_user" and password as "secret_sauce"

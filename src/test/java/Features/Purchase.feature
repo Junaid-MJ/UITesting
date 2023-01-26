@@ -6,13 +6,14 @@ Feature: To Test purchase Functionality
     And User Enters the username as "standard_user" and password as "secret_sauce"
     And User clicks on "LoginButton" on "LoginPage"
 
-
+  @Purchase
   Scenario: Verify that the user can add product to cart from homepage
     Given Validate that login is successful and User is navigated to Homepage
     When User adds "Sauce Labs Backpack" to cart
     Then Validate that the "Sauce Labs Backpack" product is placed in the cart
     And User quits the browser
 
+  @Purchase
   Scenario: Verify that the user can delete product from cart
     Given Validate that login is successful and User is navigated to Homepage
     When User adds "Sauce Labs Backpack" to cart
@@ -21,6 +22,7 @@ Feature: To Test purchase Functionality
     Then User validate that the "Sauce Labs Backpack" is removed from th cart
     And User quits the browser
 
+  @Purchase
   Scenario: Verify that the warning is given for unfilled info during checkout
     Given Validate that login is successful and User is navigated to Homepage
     When User adds "Sauce Labs Backpack" to cart
@@ -36,6 +38,7 @@ Feature: To Test purchase Functionality
     Then Validate that the warning "Error: Postal Code is required" is coming
     And User quits the browser
 
+  @Purchase
   Scenario: Verify that the sorting is working fine for products on homepage
     Given Validate that login is successful and User is navigated to Homepage
     When User selects "Name (Z to A)" from "Sort" dropdown
@@ -49,6 +52,7 @@ Feature: To Test purchase Functionality
     And User quits the browser
 
 
+  @Purchase
   Scenario: Full purchase flow of a product
     Given Validate that login is successful and User is navigated to Homepage
     When User adds "Sauce Labs Backpack" to cart

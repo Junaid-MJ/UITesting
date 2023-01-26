@@ -9,8 +9,8 @@ import io.cucumber.junit.*;
         glue={"StepDefinitions"},
         monochrome = true,
         plugin={"pretty", "html:target/HtmlReports.html", "json:target/jsonReport.json","junit:target/junitReport.xml"},
-        dryRun = true
-       // , tags = ""
+        //dryRun = true,
+         tags = "@Login or @Purchase"
 )
 public class TestRunner {
 }
