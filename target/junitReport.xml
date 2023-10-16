@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="30.607" tests="7" skipped="0" failures="0" errors="0">
+<testcase classname="To Test Login Functionality" name="1. Verify Login logout functionality for a valid User" time="6.15">
+<system-out><![CDATA[
+Given User navigates to the login page......................................passed
+And User Enters the username as "standard_user" and password as "secret_sauce".passed
+And User clicks on "LoginButton" on "LoginPage".............................passed
+Then Validate that login is successful and User is navigated to Homepage....passed
+When User selects "Logout" from "MenuButton"................................passed
+Then Validate that user has logged out successfully.........................passed
+And User quits the browser..................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="To Test Login Functionality" name="2. Verify Login is locked for a locked user" time="2.786">
+<system-out><![CDATA[
+Given User navigates to the login page......................................passed
+And User Enters the username as "locked_out_user" and password as "secret_sauce".passed
+And User clicks on "LoginButton" on "LoginPage".............................passed
+Then Validate that login is unsuccessful and warning message is displayed...passed
+And User quits the browser..................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="To Test purchase Functionality" name="Verify that the user can add product to cart from homepage" time="2.254">
+<system-out><![CDATA[
+Given User navigates to the login page......................................passed
+And User Enters the username as "standard_user" and password as "secret_sauce".passed
+And User clicks on "LoginButton" on "LoginPage".............................passed
+Given Validate that login is successful and User is navigated to Homepage...passed
+When User adds "Sauce Labs Backpack" to cart................................passed
+Then Validate that the "Sauce Labs Backpack" product is placed in the cart..passed
+And User quits the browser..................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="To Test purchase Functionality" name="Verify that the user can delete product from cart" time="2.231">
+<system-out><![CDATA[
+Given User navigates to the login page......................................passed
+And User Enters the username as "standard_user" and password as "secret_sauce".passed
+And User clicks on "LoginButton" on "LoginPage".............................passed
+Given Validate that login is successful and User is navigated to Homepage...passed
+When User adds "Sauce Labs Backpack" to cart................................passed
+Then Validate that the "Sauce Labs Backpack" product is placed in the cart..passed
+When User Removes "Sauce Labs Backpack" from Cart...........................passed
+Then User validate that the "Sauce Labs Backpack" is removed from th cart...passed
+And User quits the browser..................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="To Test purchase Functionality" name="Verify that the warning is given for unfilled info during checkout" time="3.351">
+<system-out><![CDATA[
+Given User navigates to the login page......................................passed
+And User Enters the username as "standard_user" and password as "secret_sauce".passed
+And User clicks on "LoginButton" on "LoginPage".............................passed
+Given Validate that login is successful and User is navigated to Homepage...passed
+When User adds "Sauce Labs Backpack" to cart................................passed
+Then Validate that the "Sauce Labs Backpack" product is placed in the cart..passed
+When User clicks on "CheckoutButton" on "YourCartPage"......................passed
+When User clicks on "ContinueButton" on "YourCartPage"......................passed
+Then Validate that the warning "Error: First Name is required" is coming....passed
+And User fills "first-name" as "Mohammad" in checkout information...........passed
+Then Validate that the warning "Error: Last Name is required" is coming.....passed
+And User fills "last-name" as "Junaid" in checkout information..............passed
+Then Validate that the warning "Error: Postal Code is required" is coming...passed
+And User quits the browser..................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="To Test purchase Functionality" name="Verify that the sorting is working fine for products on homepage" time="10.799">
+<system-out><![CDATA[
+Given User navigates to the login page......................................passed
+And User Enters the username as "standard_user" and password as "secret_sauce".passed
+And User clicks on "LoginButton" on "LoginPage".............................passed
+Given Validate that login is successful and User is navigated to Homepage...passed
+When User selects "Name (Z to A)" from "Sort" dropdown......................passed
+Then Validate that all the items are sorted according to "Name (Z to A)"....passed
+When User selects "Name (A to Z)" from "Sort" dropdown......................passed
+Then Validate that all the items are sorted according to "Name (A to Z)"....passed
+When User selects "Price (low to high)" from "Sort" dropdown................passed
+Then Validate that all the items are sorted according to "Price (low to high)".passed
+When User selects "Price (high to low)" from "Sort" dropdown................passed
+Then Validate that all the items are sorted according to "Price (high to low)".passed
+And User quits the browser..................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="To Test purchase Functionality" name="Full purchase flow of a product" time="2.87">
+<system-out><![CDATA[
+Given User navigates to the login page......................................passed
+And User Enters the username as "standard_user" and password as "secret_sauce".passed
+And User clicks on "LoginButton" on "LoginPage".............................passed
+Given Validate that login is successful and User is navigated to Homepage...passed
+When User adds "Sauce Labs Backpack" to cart................................passed
+And User adds "Sauce Labs Bike Light" to cart...............................passed
+And User adds "Sauce Labs Bolt T-Shirt" to cart.............................passed
+Then Validate that the "Sauce Labs Backpack" product is placed in the cart..passed
+And Validate that the "Sauce Labs Bike Light" product is placed in the cart.passed
+And Validate that the "Sauce Labs Bolt T-Shirt" product is placed in the cart.passed
+When User Removes "Sauce Labs Backpack" from Cart...........................passed
+Then User validate that the "Sauce Labs Backpack" is removed from th cart...passed
+When User clicks on "CheckoutButton" on "YourCartPage"......................passed
+And User fills "first-name" as "Mohammad" in checkout information...........passed
+And User fills "last-name" as "Junaid" in checkout information..............passed
+And User fills "postal-code" as "411014" in checkout information............passed
+And User clicks on "ContinueButton" on "YourCartPage".......................passed
+Then User Verify checkout overview..........................................passed
+And User clicks on "FinishButton" on "YourCartPage".........................passed
+Then Validate that the order is successful..................................passed
+And User quits the browser..................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

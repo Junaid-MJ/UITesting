@@ -24,6 +24,7 @@ public class GlobalStepDefs {
     LoginPage loginpage= new LoginPage();
     HomePage homepage= new HomePage();
     YourCartPage yourCartPage= new YourCartPage();
+
     public GlobalStepDefs() throws IOException {
     }
 
@@ -113,7 +114,7 @@ public class GlobalStepDefs {
                 }
             }
         }
-        Assert.assertEquals(false, isPresent);
+        Assert.assertFalse(isPresent);
 
     }
 
@@ -137,6 +138,7 @@ public class GlobalStepDefs {
 
     @Then("Validate that the order is successful")
     public void validateThatTheOrderIsSuccessful() {
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.findElement(yourCartPage.CheckoutCompleteLabel()).isDisplayed();
     }
 

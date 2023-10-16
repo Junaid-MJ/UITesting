@@ -11,7 +11,7 @@ public class YourCartPage {
     private By field;
     private By continueButton=By.xpath("//*[@id='continue']");
     private By checkoutLabel= By.xpath("//*[text()='Checkout: Overview']");
-    private By checkoutCompleteLabel= By.xpath("//*[text()='THANK YOU FOR YOUR ORDER']");
+    private By checkoutCompleteLabel= By.xpath("//*[text()='Thank you for your order!']");
     private By finishButton= By.xpath("//*[text()='Finish']");
     private By error= By.xpath("//*[@data-test='error']");
 
